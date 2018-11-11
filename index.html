@@ -1,1 +1,61 @@
-hello
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/gridster/jquery.gridster.min.css">    
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+	<div class="container">
+		<div class="card">
+		  <h5 class="card-header">Featured</h5>
+		  <div class="card-body">
+		      <div class="gridster" style="height: 600px;">
+			    <ul>
+			        <li data-sizey="2" data-sizex="2" data-col="4" data-row="1">
+			            Image
+			            <div class="gridster-box">
+			                <div class="handle-resize"></div>
+			            </div>
+			        </li>
+			        <li data-sizey="1" data-sizex="1" data-col="1" data-row="3">
+			            Test
+			            <div class="gridster-box">
+			                <div class="handle-resize"></div>
+			            </div>
+			        </li>
+			        <li data-sizey="1" data-sizex="1" data-col="2" data-row="3">
+			            Video
+			            <div class="gridster-box">
+			                <div class="handle-resize"></div>
+			            </div>
+			        </li>
+			        <li data-sizey="2" data-sizex="2" data-col="1" data-row="1">
+			            Slid
+			            <div class="gridster-box">
+			                <div class="handle-resize"></div>
+			            </div>
+			        </li>
+			    </ul>
+		      </div>
+		  </div>
+		</div>
+		<p>Log</p>
+	
+		<div id="log"></div> 
+	</div>  
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/jquery/jquery-3.3.1.slim.min.js"></script>
+    <script src="assets/popper/popper.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/gridster/jquery.gridster.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/ajax/log.js"></script>   
+  </body>
+</html>
