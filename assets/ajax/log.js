@@ -48,7 +48,11 @@ $(document).ready(function () {
 	
     //Text
 	$('#widgetText').on('click', function(){
-		alert("text");
+        gridster.add_widget('<li>Text</li>', 28 , 3, 1, 100);
+	});	
+	
+	$('#widgetImage').on('click', function(){
+        gridster.remove_widget('#rmoveId')
 	});	
 
 });
