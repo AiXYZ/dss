@@ -27,14 +27,14 @@ $(document).ready(function () {
 	    }    
     }).data('gridster');
     
-    //screen height
+    //Screen height
     var screenWidth = $(".gridster").width();
     screenWidth *= 1;
     var screenHeight = Math.round((screenWidth/16)*9);
     $('.gridster  ul').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
     $('.gridster').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
     
-    //coordinates
+    //Coordinates
 	$('#getCoordinates').on('click', function(){
 		$('.gridster  ul li').each(function(i) {
 	    	  var dataSizey = $(this).attr('data-sizey');
@@ -44,6 +44,11 @@ $(document).ready(function () {
 	    	  
 	    	  console.log(i+': '+dataSizey+'_'+dataSizex+'_'+dataCol+'_'+dataRow);
 		});
-	});    
+	}); 
+	
+    //Text
+	$('#widgetText').on('click', function(){
+		alert("text");
+	});	
 
 });
