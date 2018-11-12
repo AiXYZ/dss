@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/gridster/jquery.gridster.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <title>Hello, world!</title>
@@ -15,29 +16,44 @@
   <body>
 	<div class="container">
 		<div class="card">
-		  <h5 class="card-header">Featured</h5>
+		  <div class="card-header">
+		    <ul class="nav nav-pills card-header-pills">
+		      <li class="nav-item">
+		        <a class="nav-link" href="#"><span class="oi oi-pencil"></span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#"><span class="oi oi-image"></span></a> 
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#"><span class="oi oi-layers"></span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#"><span class="oi oi-video"></span></a>
+		      </li>		      
+		    </ul>
+		  </div>
 		  <div class="card-body">
-		      <div class="gridster" style="height: 600px;">
+		      <div class="gridster">
 			    <ul>
-			        <li data-sizey="2" data-sizex="2" data-col="4" data-row="1">
+			        <li data-sizey="3" data-sizex="28" data-col="21" data-row="1">
 			            Image
 			            <div class="gridster-box">
 			                <div class="handle-resize"></div>
 			            </div>
 			        </li>
-			        <li data-sizey="1" data-sizex="1" data-col="1" data-row="3">
+			        <li data-sizey="1" data-sizex="28" data-col="51" data-row="1">
 			            Test
 			            <div class="gridster-box">
 			                <div class="handle-resize"></div>
 			            </div>
 			        </li>
-			        <li data-sizey="1" data-sizex="1" data-col="2" data-row="3">
+			        <li data-sizey="2" data-sizex="25" data-col="81" data-row="1">
 			            Video
 			            <div class="gridster-box">
 			                <div class="handle-resize"></div>
 			            </div>
 			        </li>
-			        <li data-sizey="2" data-sizex="2" data-col="1" data-row="1">
+			        <li data-sizey="5" data-sizex="18" data-col="1" data-row="1">
 			            Slid
 			            <div class="gridster-box">
 			                <div class="handle-resize"></div>
@@ -47,6 +63,8 @@
 		      </div>
 		  </div>
 		</div>
+		<p>Control</p>
+		<button id="getCoordinates" type="button" class="btn btn-primary">Coordinates</button>
 		<p>Log</p>
 	
 		<div id="log"></div> 
