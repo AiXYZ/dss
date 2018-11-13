@@ -53,7 +53,8 @@ $(document).ready(function () {
 	
     //Text
 	$('#widgetText').on('click', function(){
-        gridster.add_widget('<li>Text</li>', 28 , 3, 1, 100);
+        //gridster.add_widget('<li>Text</li>', 28 , 3, 1, 100);
+		$('#widgetTextModal').modal('show');
 	});	
 	
 	$('#widgetImage').on('click', function(){
