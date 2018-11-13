@@ -13,6 +13,11 @@ $(document).ready(function () {
             start: function (e, ui, $widget) {
                 console.log('START position: ' + ui.position.top + ' ' + ui.position.left);
             },
+            resize: function (e, ui, $widget) {
+                if($.inArray('upText', $widget[0]['classList']) !== -1){
+                	$('.upText').css('font-size', this.resize_coords.data.height*0.70);
+                }
+            },            
             stop: function (e, ui, $widget) {
                 console.log('STOP position: ' + ui.position.top + ' ' + ui.position.left);
             }

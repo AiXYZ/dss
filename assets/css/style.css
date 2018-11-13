@@ -13,11 +13,11 @@
     background: #BBB;
 }
 
-.gridster .gs-w.try {
-    background-image: url(../img/sprite.png);
+/*me*/
+.gridster .upImage {
+    background-image: url(../../assets/upload/image/sgc.jpg);
     background-repeat: no-repeat;
-    background-position: 37px -169px;
-
+	background-size: 100% 100%;
 }
 
 .gridster .preview-holder {
@@ -26,24 +26,28 @@
     background: red !important;
 }
 
-ul {
-    list-style-type: none;
-}
-
-li {
-    list-style: none;
-    font-weight: bold
-}
-
+/*box shadow*/
 .gridster ul {
-    background-color: #EFEFEF;
+	list-style-type: none;
+    background-color: #FFFFFF;
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0, .20);
+	-moz-box-shadow: 0 0 10px rgba(0,0,0, .20);
+	box-shadow: 0 0 10px rgba(0,0,0, .20);    
 }
 
+/*me*/
 .gridster li {
-    font-size: 1em;
-    font-weight: bold;
-    text-align: center;
-    line-height: 100%;
+    list-style: none;
+}
+
+/*me*/
+.gridster .upText {
+	text-align: left;
+	display: flex;
+    align-items: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: clip;
 }
 
 .gridster-box {
