@@ -60,5 +60,21 @@ $(document).ready(function () {
 	$('#widgetImage').on('click', function(){
         gridster.remove_widget('#rmoveId')
 	});	
+	
+    $('#widgetTextBg').colorpicker({
+        colorSelectors: {
+            'black': '#000000',
+            'white': '#ffffff',
+            'red': '#FF0000',
+            'default': '#777777',
+            'primary': '#337ab7',
+            'success': '#5cb85c',
+            'info': '#5bc0de',
+            'warning': '#f0ad4e',
+            'danger': '#d9534f'
+        }
+    }).on('changeColor', function(e) {
+    	$('#widgetTextInput').css({'background-color': e.color.toString('rgba'), 'color': '#FFFFFF'});
+    });
 
 });
