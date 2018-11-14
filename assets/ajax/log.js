@@ -78,7 +78,7 @@ $(document).ready(function () {
 	$('#widgetTextSubmit').on('click', function(){
 		var widgetTextValue = $('#widgetTextInput').val();
 		var widgetTextBg = $('#widgetTextInput').attr('style');
-		gridster.add_widget('<li class="upText" style="'+widgetTextBg+'">'+widgetTextValue+'</li>', 28 , 3, 1, 100);
+		gridster.add_widget('<li class="upText" style="'+widgetTextBg+' font-size: 35px;">'+widgetTextValue+'</li>', 30 , 1, 1, 100);
 		$('#widgetTextModal').modal('hide');
 	});	    
 	
