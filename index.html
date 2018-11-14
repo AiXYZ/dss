@@ -62,7 +62,7 @@
 			    </ul>
 		      </div>
 		  </div>
-		  <!-- Modal -->
+		  <!-- Text Modal -->
 		  <div class="modal fade" id="widgetTextModal" tabindex="-1" role="dialog" aria-labelledby="widgetTextModalLabel" aria-hidden="true">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
@@ -87,6 +87,50 @@
 			    </div>
 			  </div>
 		  </div>
+		  <!-- Image Modal -->
+		  <div class="modal fade" id="widgetImageModal" tabindex="-1" role="dialog" aria-labelledby="widgetImageModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="widgetImageModalLabel">Image</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+					  <!-- Nav tabs -->
+					  <ul class="nav nav-tabs" role="tablist">
+					    <li class="nav-item">
+					      <a class="nav-link active" data-toggle="tab" href="#widgetImageTab">Image</a>
+					    </li>
+					    <li class="nav-item">
+					      <a class="nav-link" data-toggle="tab" href="#widgetUploadTab">Upload</a>
+					    </li>
+					    <li class="nav-item">
+					      <a class="nav-link" data-toggle="tab" href="#widgetGoogleTab">Google</a>
+					    </li>
+					  </ul>
+					
+					  <!-- Tab panes -->
+					  <div class="tab-content">
+					    <div id="widgetImageTab" class="container tab-pane active"><br>
+					      <p>Image List</p>
+					    </div>
+					    <div id="widgetUploadTab" class="container tab-pane fade"><br>
+					      <p>Uload input</p>
+					    </div>
+					    <div id="widgetGoogleTab" class="container tab-pane fade"><br>
+					      <p>Google search</p>
+					    </div>
+					  </div>					
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button id="widgetImageSubmit" type="button" class="btn btn-primary">Submit</button>
+			      </div>
+			    </div>
+			  </div>
+		  </div>		  
 		  		  
 		</div>
 		<p>Control</p>

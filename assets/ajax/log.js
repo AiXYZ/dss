@@ -82,10 +82,12 @@ $(document).ready(function () {
 		$('#widgetTextModal').modal('hide');
 	});	    
 	
+	//Image
 	$('#widgetImage').on('click', function(){
-        gridster.remove_widget('#rmoveId')
+		$('#widgetImageModal').modal('show');
+		
+        //gridster.remove_widget('#rmoveId')
 	});	
-	
 
 
 });
