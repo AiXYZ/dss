@@ -53,7 +53,6 @@ $(document).ready(function () {
 	
     //Text
 	$('#widgetText').on('click', function(){
-        //gridster.add_widget('<li>Text</li>', 28 , 3, 1, 100);
 		$('#widgetTextModal').modal('show');
 	});	
 	
@@ -74,6 +73,13 @@ $(document).ready(function () {
     }).on('changeColor', function(e) {
     	$('#widgetTextInput').css({'background-color': e.color.toString('rgba'), 'color': '#FFFFFF'});
     });
+    
+	$('#widgetTextSubmit').on('click', function(){
+		var widgetTextValue = $('#widgetTextInput').val();
+		var widgetTextBg = $('#widgetTextInput').attr('style');
+		gridster.add_widget('<li class="upText" style="'+widgetTextBg+'">'+widgetTextValue+'</li>', 28 , 3, 1, 100);
+		$('#widgetTextModal').modal('hide');
+	});	    
 	
 	$('#widgetImage').on('click', function(){
         gridster.remove_widget('#rmoveId')
