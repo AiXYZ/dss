@@ -15,7 +15,7 @@ $(document).ready(function () {
             },
             resize: function (e, ui, $widget) {
                 if($.inArray('upText', $widget[0]['classList']) !== -1){
-                	$('.upText').css('font-size', this.resize_coords.data.height*0.70);
+                	$($widget).css('font-size', this.resize_coords.data.height*0.70);
                 }
             },            
             stop: function (e, ui, $widget) {
@@ -58,17 +58,18 @@ $(document).ready(function () {
 	
     $('#widgetTextBg').colorpicker({
         colorSelectors: {
-        	'maroon': '#800000',
-        	'olive': '#808000',
-        	'navy': '#000080',
-        	'black': '#000000',
-        	'red': '#ff0000',
-        	'orange': '#ffa500',
-        	'yellow': '#ffff00',
-        	'green': '#008000',
-        	'cyan': '#00ffff',
-        	'blue': '#0000ff',
-        	'purple': '#800080'            
+        	"slategray": "#708090",
+        	"blueviolet": "#8a2be2",
+        	"chocolate": "#d2691e",
+        	"cornflowerblue": "#6495ed",
+        	"darkgoldenrod": "#b8860b",
+        	"green": "#008000",
+        	"maroon": "#800000",
+        	"steelblue": "#4682b4",
+        	"purple": "#800080",
+        	"darkred": "#8b0000",
+        	"sienna": "#a0522d",
+           
         }
     }).on('changeColor', function(e) {
     	$('#widgetTextInput').css({'background-color': e.color.toString('rgba'), 'color': '#FFFFFF'});
