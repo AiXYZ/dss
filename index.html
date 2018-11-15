@@ -107,7 +107,7 @@
 					      <a class="nav-link" data-toggle="tab" href="#widgetUploadTab">Upload</a>
 					    </li>
 					    <li class="nav-item">
-					      <a class="nav-link" data-toggle="tab" href="#widgetGoogleTab">Google</a>
+					      <a class="nav-link" data-toggle="tab" href="#widgetSearchTab">Search</a>
 					    </li>
 					  </ul>
 					
@@ -119,8 +119,14 @@
 					    <div id="widgetUploadTab" class="container tab-pane fade"><br>
 					      <p>Uload input</p>
 					    </div>
-					    <div id="widgetGoogleTab" class="container tab-pane fade"><br>
-					      <p>Google search</p>
+					    <div id="widgetSearchTab" class="container tab-pane fade"><br>
+							<div class="input-group mb-3">
+							  <input id="widgetSearchInput" type="text" class="form-control" placeholder="Search">
+							  <div class="input-group-append">
+							    <button id="widgetSearchButton" class="btn btn-success" type="button">Go</button> 
+							  </div>
+							</div>
+						    <div id="widgetSearchResult" class="row"></div>							
 					    </div>
 					  </div>					
 			      </div>

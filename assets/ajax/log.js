@@ -88,6 +88,32 @@ $(document).ready(function () {
 		
         //gridster.remove_widget('#rmoveId')
 	});	
-
-
+	
+	//Image search
+	$('#widgetSearchButton').on('click', function(){
+		var queryValue = $('#widgetSearchInput').val();
+		unsplash(queryValue);
+		return false;
+	});
+	
+	function unsplash(queryValue){
+		$.ajax({
+			url:'https://api.unsplash.com/photos/?query='+queryValue,
+			type:'GET',
+			dataType:'json',
+			data:{
+				client_id:'9ef032c1f73467e6e796f196e90a065237d4aacdda773e3f80b0cdb806bafe26',
+				per_page:8,
+			},
+			success: function(data){
+				$.each(data, function(i, item) {
+					$('#widgetSearchResult').append(
+						'<div class="col-lg-3 col-md-4 col-xs-6">'+
+							'<img class="img-fluid img-thumbnail" src="'+item.urls.small+'">'+
+						'</div>'
+					);			
+				});
+			}
+		});
+	}
 });
