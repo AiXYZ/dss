@@ -89,6 +89,27 @@ $(document).ready(function () {
         //gridster.remove_widget('#rmoveId')
 	});	
 	
+	//Image upload
+    $('#widgetImageSubmit').on('click', function(){
+        var form_data = new FormData();
+        var ins = document.getElementById('widgetImageUploadInput').files.length;
+        for(var x = 0; x < ins; x++){
+            form_data.append("files[]", document.getElementById('widgetImageUploadInput').files[x]);
+        }
+        $.ajax({
+            url: 'assets/ajax/controller/image_upload.php', // point to server-side PHP script 
+            dataType: 'json', // what to expect back from the PHP script
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function(response){
+            	console.log(response); // display success response from the PHP script
+            }
+        });
+    });	
+	
 	//Image search
 	$('#widgetSearchButton').on('click', function(){
 		var queryValue = $('#widgetSearchInput').val();

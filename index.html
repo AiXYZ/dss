@@ -74,10 +74,10 @@
 			      </div>
 			      <div class="modal-body">
 					<div class="input-group mb-3">
-					  <textarea id="widgetTextInput" class="form-control" aria-label="With textarea" rows="3" style="background-color: rgb(112, 128, 144); color: rgb(255, 255, 255);"></textarea>
-					  <div class="input-group-append">
+					  <div class="input-group-prepend">
 					    <span id="widgetTextBg" class="input-group-text" title="Background Color"><span class="oi oi-grid-three-up"></span></span>
 					  </div>
+					  <textarea id="widgetTextInput" class="form-control" aria-label="Background Color" rows="3" style="background-color: rgb(112, 128, 144); color: rgb(255, 255, 255);"></textarea>
 					</div>	
 			      </div>
 			      <div class="modal-footer">
@@ -117,7 +117,9 @@
 					      <p>Image List</p>
 					    </div>
 					    <div id="widgetUploadTab" class="container tab-pane fade"><br>
-					      <p>Uload input</p>
+						    <div class="form-group">
+						      <input id="widgetImageUploadInput" multiple="multiple" type="file" class="form-control-file border">
+						    </div>
 					    </div>
 					    <div id="widgetSearchTab" class="container tab-pane fade"><br>
 							<div class="input-group mb-3">
