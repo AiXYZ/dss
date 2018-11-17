@@ -92,20 +92,20 @@ $(document).ready(function () {
 	//Image upload
     $('#widgetImageSubmit').on('click', function(){
         var form_data = new FormData();
-        var ins = document.getElementById('widgetImageUploadInput').files.length;
-        for(var x = 0; x < ins; x++){
-            form_data.append("files[]", document.getElementById('widgetImageUploadInput').files[x]);
+        var fileCount = document.getElementById('widgetImageUploadInput').files.length;
+        for(var i = 0; i < fileCount; i++){
+            form_data.append('uploadFile[]', document.getElementById('widgetImageUploadInput').files[i]);
         }
         $.ajax({
-            url: 'assets/ajax/controller/image_upload.php', // point to server-side PHP script 
-            dataType: 'json', // what to expect back from the PHP script
+            url: 'assets/ajax/controller/image_upload.php',
+            dataType: 'json',
             cache: false,
             contentType: false,
             processData: false,
             data: form_data,
             type: 'post',
             success: function(response){
-            	console.log(response); // display success response from the PHP script
+            	console.log(response);
             }
         });
     });	
