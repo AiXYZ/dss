@@ -93,7 +93,18 @@ $(document).ready(function () {
 				image: 'test',
 			}
 		}).done(function(data){
-			console.log(data);
+			$('#widgetImageUploadedList').empty();
+			$.each(data, function(i, item){
+				$('#widgetImageUploadedList').append(
+					'<div class="card cardContainer">'+
+						'<img class="img-fluid imageHover" src="assets/upload/image/'+item.file_name+'"">'+
+						'<div class="card-img-overlay cardCaption">'+
+							'<span class="oi oi-circle-check card-title"></span>'+
+							'<p class="card-text">Stylish Portfolio is the perfect theme for your next projectStylish Portfolio is the perfect theme for your next project</p>'+
+						'</div>'+							
+					'</div>'			
+				);				
+			});
 		});		
         //gridster.remove_widget('#rmoveId')
 	});	

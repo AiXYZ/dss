@@ -47,5 +47,52 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: clip;
-	
 }
+
+/*card*/
+.no-gutter-card.card-columns {
+  column-gap: 2px;
+}
+
+.no-gutter-card > .card {
+  margin: 1px;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+/*image card hover*/
+.imageHover {
+	opacity: 1;
+}
+
+.cardCaption {
+	opacity: 0;
+}
+
+.cardContainer:hover .imageHover {
+	opacity: 0.3;
+}
+
+.cardContainer:hover .cardCaption {
+	opacity: 0.7;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: clip;	
+}
+
+ .cardContainer .cardCaption .card-text {
+	position: absolute;
+	left: 4px;
+    bottom: 2px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: clip;    
+}
+/* instead of cardContainer
+.cardContainerChecked{
+	border: 3px solid #4285f4 !important;
+	color: green;
+	opacity: 1;
+}
+*/
