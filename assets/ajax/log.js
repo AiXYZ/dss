@@ -85,7 +85,16 @@ $(document).ready(function () {
 	//Image
 	$('#widgetImage').on('click', function(){
 		$('#widgetImageModal').modal('show');
-		
+		$.ajax({
+			url: "assets/ajax/controller/image_list.php",
+			type: "POST",
+			dataType:'json',
+			data:{
+				image: 'test',
+			}
+		}).done(function(data){
+			console.log(data);
+		});		
         //gridster.remove_widget('#rmoveId')
 	});	
 	
@@ -103,7 +112,7 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             data: form_data,
-            type: 'post',
+            type: 'POST',
             beforeSend: function(data){
             	$('#widgetImageUploadResult').text('uploading');
             },
