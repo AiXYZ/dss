@@ -90,7 +90,7 @@ $(document).ready(function () {
 	});	
 	
 	//Image upload
-    $('#widgetImageSubmit').on('click', function(){
+    $('#widgetImageUploadInput').on('change', function(){
         var form_data = new FormData();
         var fileCount = document.getElementById('widgetImageUploadInput').files.length;
         for(var i = 0; i < fileCount; i++){
@@ -104,9 +104,19 @@ $(document).ready(function () {
             processData: false,
             data: form_data,
             type: 'post',
-            success: function(response){
-            	console.log(response);
-            }
+            beforeSend: function(data){
+            	$('#widgetImageUploadResult').text('uploading');
+            },
+	        success: function(data){
+				$('#widgetImageUploadResult').empty();
+				$.each(data, function(i, item){
+					$('#widgetImageUploadResult').append(
+						'<div class="col-lg-3 col-md-4 col-xs-6">'+
+							'<img class="img-fluid img-thumbnail" src="assets/upload/image/'+item.file+'">'+
+						'</div>'
+					);
+				});        	
+	        }        
         });
     });	
 	
@@ -130,7 +140,7 @@ $(document).ready(function () {
 			},
 			success: function(data){
 				$('#widgetSearchResult').empty();
-				$.each(data['results'], function(i, item) {
+				$.each(data['results'], function(i, item){
 					$('#widgetSearchResult').append(
 						'<div class="col-lg-3 col-md-4 col-xs-6">'+
 							'<img class="img-fluid img-thumbnail" src="'+item.urls.small+'">'+
