@@ -109,9 +109,11 @@ $(document).ready(function () {
         //gridster.remove_widget('#rmoveId')
 	});	
 	
+	var selectedImage = '';
 	$('#widgetImageUploadedList').on('click', '.card', function(){
 		$(this).removeClass('cardContainerHover');
 	    $(this).addClass('cardContainerSelected');
+	    selectedImage = $(this).find('img').attr('src');
 	});	
 	
 	//Image upload
@@ -148,8 +150,9 @@ $(document).ready(function () {
 	//Image search
 	$('#widgetSearchButton').on('click', function(){
 		var queryValue = $('#widgetSearchInput').val();
-		unsplash(queryValue);
-		return false;
+		if(queryValue){
+			unsplash(queryValue);
+		}
 	});
 	
 	function unsplash(queryValue){
@@ -160,15 +163,18 @@ $(document).ready(function () {
 			data:{
 				client_id:'9ef032c1f73467e6e796f196e90a065237d4aacdda773e3f80b0cdb806bafe26',
 				query:queryValue,
-				per_page:8,
+				per_page:12,
 				orientation:'landscape',
 			},
 			success: function(data){
 				$('#widgetSearchResult').empty();
 				$.each(data['results'], function(i, item){
 					$('#widgetSearchResult').append(
-						'<div class="card">'+
-							'<img class="img-fluid" src="'+item.urls.small+'">'+							
+						'<div class="card cardContainerHover">'+
+							'<img class="img-fluid imageHover" src="'+item.urls.small+'">'+
+							'<div class="card-img-overlay cardCaption">'+
+								'<span class="oi oi-circle-check card-title"></span>'+
+							'</div>'+							
 						'</div>'							
 					);
 				});
@@ -176,4 +182,14 @@ $(document).ready(function () {
 		});
 	}
 	
+	$('#widgetSearchResult').on('click', '.card', function(){
+		$(this).removeClass('cardContainerHover');
+	    $(this).addClass('cardContainerSelected');
+	    selectedImage = $(this).find('img').attr('src');
+	});	
+	
+	$('#widgetImageSubmit').on('click', function(){
+		$('#widgetImageModal').modal('hide');
+		gridster.add_widget('<li class="upImage" style="background-image: url('+selectedImage+');"></li>', 30 , 3, 1, 100);
+	});
 });
