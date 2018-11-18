@@ -96,17 +96,22 @@ $(document).ready(function () {
 			$('#widgetImageUploadedList').empty();
 			$.each(data, function(i, item){
 				$('#widgetImageUploadedList').append(
-					'<div class="card cardContainer">'+
+					'<div class="card cardContainerHover">'+
 						'<img class="img-fluid imageHover" src="assets/upload/image/'+item.file_name+'"">'+
 						'<div class="card-img-overlay cardCaption">'+
 							'<span class="oi oi-circle-check card-title"></span>'+
-							'<p class="card-text">Stylish Portfolio is the perfect theme for your next projectStylish Portfolio is the perfect theme for your next project</p>'+
+							'<p class="card-text">'+item.actual_file_name+'</p>'+
 						'</div>'+							
 					'</div>'			
 				);				
 			});
 		});		
         //gridster.remove_widget('#rmoveId')
+	});	
+	
+	$('#widgetImageUploadedList').on('click', '.card', function(){
+		$(this).removeClass('cardContainerHover');
+	    $(this).addClass('cardContainerSelected');
 	});	
 	
 	//Image upload

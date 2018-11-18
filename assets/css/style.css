@@ -49,50 +49,57 @@
 	text-overflow: clip;
 }
 
-/*card*/
+/*me below*/
 .no-gutter-card.card-columns {
-  column-gap: 2px;
+	column-gap: 2px;
 }
 
 .no-gutter-card > .card {
-  margin: 1px;
-  border: 0;
-  border-radius: 0;
-  -webkit-appearance: none;
+	cursor: pointer;	
+	margin: 1px;
+	border: 0;
+	border-radius: 0;
+	-webkit-appearance: none;
 }
 
-/*image card hover*/
-.imageHover {
-	opacity: 1;
+.cardCaption .card-text {
+	position: absolute;
+	left: 4px;
+    bottom: 2px;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);  
+    color: #ffffff;
+}
+
+.cardCaption .card-title {
+	border: 2px solid #ffffff;
+    border-radius: 50px;
 }
 
 .cardCaption {
 	opacity: 0;
-}
-
-.cardContainer:hover .imageHover {
-	opacity: 0.3;
-}
-
-.cardContainer:hover .cardCaption {
-	opacity: 0.7;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: clip;	
 }
 
- .cardContainer .cardCaption .card-text {
-	position: absolute;
-	left: 4px;
-    bottom: 2px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: clip;    
+.cardContainerHover:hover .imageHover {
+	opacity: 0.3;
 }
-/* instead of cardContainer
-.cardContainerChecked{
-	border: 3px solid #4285f4 !important;
-	color: green;
+
+.cardContainerHover:hover .cardCaption {
+	opacity: 0.7;
+}
+
+.cardContainerSelected{
+	border: 3px solid #28a745 !important;
+	color: #28a745;
 	opacity: 1;
 }
-*/
+
+.cardContainerSelected .imageHover {
+	opacity: 1;
+}
+
+.cardContainerSelected .cardCaption {
+	opacity: 1;
+}
