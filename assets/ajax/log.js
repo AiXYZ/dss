@@ -97,7 +97,7 @@ $(document).ready(function () {
 			$.each(data, function(i, item){
 				$('#widgetImageUploadedList').append(
 					'<div class="card cardContainerHover">'+
-						'<img class="img-fluid imageHover" src="assets/upload/image/'+item.file_name+'"">'+
+						'<img class="img-fluid imageHover" src="assets/upload/image/'+item.file_name+'">'+
 						'<div class="card-img-overlay cardCaption">'+
 							'<span class="oi oi-circle-check card-title"></span>'+
 							'<p class="card-text">'+item.actual_file_name+'</p>'+
@@ -167,9 +167,9 @@ $(document).ready(function () {
 				$('#widgetSearchResult').empty();
 				$.each(data['results'], function(i, item){
 					$('#widgetSearchResult').append(
-						'<div class="col-lg-3 col-md-4 col-xs-6">'+
-							'<img class="img-fluid img-thumbnail" src="'+item.urls.small+'">'+
-						'</div>'
+						'<div class="card">'+
+							'<img class="img-fluid" src="'+item.urls.small+'">'+							
+						'</div>'							
 					);
 				});
 			}
