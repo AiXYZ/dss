@@ -55,6 +55,12 @@
 }
 
 /*me below*/
+
+.modalBodyScroll{
+	max-height: calc(100vh - 200px);
+	overflow-y: auto;
+}
+
 .no-gutter-card.card-columns {
 	column-gap: 2px;
 }
