@@ -16,6 +16,12 @@
 	background-size: 100% 100%;
 }
 
+.gridster .upSlider {
+    background-repeat: no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+}
+
 /*me*/
 .gridster .preview-holder {
     border: none !important;
@@ -101,4 +107,11 @@
 
 .cardContainerSelected .cardCaption {
 	opacity: 1;
+}
+
+.upSliderIcon{
+	top: 40%;
+	text-shadow: 2px 2px 0 #212121, -1px -1px 0 #212121, 1px -1px 0 #212121, -1px 1px 0 #212121, 1px 1px 0 #212121;
+	font-size: 20px;
+	color: #ffffff;
 }

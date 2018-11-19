@@ -85,6 +85,11 @@ $(document).ready(function () {
 	//Image
 	$('#widgetImage').on('click', function(){
 		$('#widgetImageModal').modal('show');
+		imageUploadedList('widgetImageUploadedList');
+        //gridster.remove_widget('#rmoveId')
+	});
+	
+	function imageUploadedList(id){
 		$.ajax({
 			url: "assets/ajax/controller/image_list.php",
 			type: "POST",
@@ -93,9 +98,9 @@ $(document).ready(function () {
 				image: 'test',
 			}
 		}).done(function(data){
-			$('#widgetImageUploadedList').empty();
+			$('#'+id).empty();
 			$.each(data, function(i, item){
-				$('#widgetImageUploadedList').append(
+				$('#'+id).append(
 					'<div class="card cardContainerHover">'+
 						'<img class="img-fluid imageHover" src="assets/upload/image/'+item.file_name+'">'+
 						'<div class="card-img-overlay cardCaption">'+
@@ -106,8 +111,7 @@ $(document).ready(function () {
 				);				
 			});
 		});		
-        //gridster.remove_widget('#rmoveId')
-	});	
+	}
 	
 	var selectedImage = '';
 	$('#widgetImageUploadedList').on('click', '.card', function(){
@@ -198,5 +202,100 @@ $(document).ready(function () {
 	});
 	
 	//Slider
+	$('#widgetSlider').on('click', function(){
+		$('#widgetSliderModal').modal('show');
+		imageUploadedList('widgetSliderUploadedList');
+	});
+	
+	
+	var selectedSlider = '';
+	$('#widgetSliderUploadedList').on('click', '.card', function(){
+		$(this).removeClass('cardContainerHover');
+	    $(this).addClass('cardContainerSelected');
+	    selectedSlider = $(this).find('img').attr('src');
+	});	
+	
+	/*
+	//Image upload
+    $('#widgetImageUploadInput').on('change', function(){
+        var form_data = new FormData();
+        var fileCount = document.getElementById('widgetImageUploadInput').files.length;
+        for(var i = 0; i < fileCount; i++){
+            form_data.append('uploadFile[]', document.getElementById('widgetImageUploadInput').files[i]);
+        }
+        $.ajax({
+            url: 'assets/ajax/controller/image_upload.php',
+            dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'POST',
+            beforeSend: function(data){
+            	$('#widgetImageUploadResult').text('uploading');
+            },
+	        success: function(data){
+				$('#widgetImageUploadResult').empty();
+				$.each(data, function(i, item){
+					selectedImage = 'assets/upload/image/'+item.file;
+					$('#widgetImageUploadResult').append(
+						'<div class="card cardContainerSelected">'+
+							'<img class="img-fluid imageHover" src="assets/upload/image/'+item.file+'">'+
+							'<div class="card-img-overlay cardCaption">'+
+								'<span class="oi oi-circle-check card-title"></span>'+
+							'</div>'+							
+						'</div>'							
+					);
+				});        	
+	        }        
+        });
+    });	
+	
+	//Image search
+	$('#widgetImageSearchButton').on('click', function(){
+		var queryValue = $('#widgetImageSearchInput').val();
+		if(queryValue){
+			unsplash(queryValue);
+		}
+	});
+	
+	function unsplash(queryValue){
+		$.ajax({
+			url:'https://api.unsplash.com/search/photos',
+			type:'GET',
+			dataType:'json',
+			data:{
+				client_id:'9ef032c1f73467e6e796f196e90a065237d4aacdda773e3f80b0cdb806bafe26',
+				query:queryValue,
+				per_page:12,
+				orientation:'landscape',
+			},
+			success: function(data){
+				$('#widgetImageSearchResult').empty();
+				$.each(data['results'], function(i, item){
+					$('#widgetImageSearchResult').append(
+						'<div class="card cardContainerHover">'+
+							'<img class="img-fluid imageHover" src="'+item.urls.small+'">'+
+							'<div class="card-img-overlay cardCaption">'+
+								'<span class="oi oi-circle-check card-title"></span>'+
+							'</div>'+							
+						'</div>'							
+					);
+				});
+			}
+		});
+	}
+	
+	$('#widgetImageSearchResult').on('click', '.card', function(){
+		$(this).removeClass('cardContainerHover');
+	    $(this).addClass('cardContainerSelected');
+	    selectedImage = $(this).find('img').attr('src');
+	});	
+	*/
+	
+	$('#widgetSliderSubmit').on('click', function(){
+		$('#widgetSliderModal').modal('hide');
+		gridster.add_widget('<li class="upSlider" style="background-image: url('+selectedSlider+');"><span class="oi oi-layers upSliderIcon"></span></li>', 30 , 3, 1, 100);
+	});	
 	
 });
