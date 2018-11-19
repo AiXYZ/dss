@@ -137,10 +137,14 @@ $(document).ready(function () {
 	        success: function(data){
 				$('#widgetImageUploadResult').empty();
 				$.each(data, function(i, item){
+					selectedImage = 'assets/upload/image/'+item.file;
 					$('#widgetImageUploadResult').append(
-						'<div class="col-lg-3 col-md-4 col-xs-6">'+
-							'<img class="img-fluid img-thumbnail" src="assets/upload/image/'+item.file+'">'+
-						'</div>'
+						'<div class="card cardContainerSelected">'+
+							'<img class="img-fluid imageHover" src="assets/upload/image/'+item.file+'">'+
+							'<div class="card-img-overlay cardCaption">'+
+								'<span class="oi oi-circle-check card-title"></span>'+
+							'</div>'+							
+						'</div>'							
 					);
 				});        	
 	        }        
