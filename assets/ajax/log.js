@@ -148,8 +148,8 @@ $(document).ready(function () {
     });	
 	
 	//Image search
-	$('#widgetSearchButton').on('click', function(){
-		var queryValue = $('#widgetSearchInput').val();
+	$('#widgetImageSearchButton').on('click', function(){
+		var queryValue = $('#widgetImageSearchInput').val();
 		if(queryValue){
 			unsplash(queryValue);
 		}
@@ -167,9 +167,9 @@ $(document).ready(function () {
 				orientation:'landscape',
 			},
 			success: function(data){
-				$('#widgetSearchResult').empty();
+				$('#widgetImageSearchResult').empty();
 				$.each(data['results'], function(i, item){
-					$('#widgetSearchResult').append(
+					$('#widgetImageSearchResult').append(
 						'<div class="card cardContainerHover">'+
 							'<img class="img-fluid imageHover" src="'+item.urls.small+'">'+
 							'<div class="card-img-overlay cardCaption">'+
@@ -182,7 +182,7 @@ $(document).ready(function () {
 		});
 	}
 	
-	$('#widgetSearchResult').on('click', '.card', function(){
+	$('#widgetImageSearchResult').on('click', '.card', function(){
 		$(this).removeClass('cardContainerHover');
 	    $(this).addClass('cardContainerSelected');
 	    selectedImage = $(this).find('img').attr('src');
@@ -192,4 +192,7 @@ $(document).ready(function () {
 		$('#widgetImageModal').modal('hide');
 		gridster.add_widget('<li class="upImage" style="background-image: url('+selectedImage+');"></li>', 30 , 3, 1, 100);
 	});
+	
+	//Slider
+	
 });
