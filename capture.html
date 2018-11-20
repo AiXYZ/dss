@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<body>
+<video id="video" src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"></video><br/>
+
+<button onclick="capture()">Capture</button> <br/><br/>
+
+<canvas id="canvas"></canvas> <br/><br/>
+
+<button onclick="save()">Save</button> <br/><br/>
+
+<script src="assets/jquery/jquery-3.3.1.min.js"></script>
+<script type='text/javascript'>
+function capture(){
+	var canvas = document.getElementById('canvas');
+	var video = document.getElementById('video');
+	canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+}
+
+/*
+Uncaught SecurityError: Failed to execute 'toDataURL' on 'HTMLCanvasElement': Tainted canvases may not be exported.
+(bc inside iframe, but we can still save the image by right-clicking on the generated canevas)
+*/
+function save(){
+	getVideoImage('http://www.w3schools.com/html/mov_bbb.mp4', 1);
+}
+
+
+/*
+ * Extract multiple screenshots/frames from a video URL
+ * Params
+ *   - vidURL : video URL
+ *   - frOffsets : array of timestamps
+ *   - frameWidth : screenshot width (default: video width)
+ * Returns
+ *   - frames: object with offset => {imgUrl, blob}
+ *
+ * An multiple-frame extension of http://cwestblog.com/2017/05/03/javascript-snippet-get-video-frame-as-an-image/
+ * In this version, video & canvas elements are reused to extract multiple screenshots. Note, video seeks must
+ * occur serially, hence use of async/await.
+ */
+
+ function getVideoImage(path, secs) {
+	  var me = this, video = document.createElement('video');
+	  video.onloadedmetadata = function() {
+	    if ('function' === typeof secs) {
+	      secs = secs(this.duration);
+	    }
+	    this.currentTime = Math.min(Math.max(0, (secs < 0 ? this.duration : 0) + secs), this.duration);
+	  };
+	  video.onseeked = function(e) {
+	    var canvas = document.createElement('canvas');
+	    canvas.height = video.videoHeight;
+	    canvas.width = video.videoWidth;
+	    var ctx = canvas.getContext('2d');
+	    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+	    var img = new Image();
+	    img.src = canvas.toDataURL();
+	    //callback.call(me, img, this.currentTime, e);
+	  };
+	  video.onerror = function(e) {
+	    //callback.call(me, undefined, undefined, e);
+	  };
+	  video.src = path;
+	}
+
+
+
+</script>
+</body>

@@ -36,7 +36,7 @@
 		  <div class="card-body">
 		      <div class="gridster">
 			    <ul>
-			        <li data-sizey="2" data-sizex="25" data-col="81" data-row="1">
+			        <li class="upVideo" data-sizey="2" data-sizex="25" data-col="81" data-row="1">
 			            Video
 			            <div class="gridster-box">
 			                <div class="handle-resize"></div>
@@ -176,6 +176,44 @@
 			    </div>
 			  </div>
 		  </div>		  	  
+		  <!-- Video Modal --> 
+		  <div class="modal fade" id="widgetVideoModal" tabindex="-1" role="dialog" aria-labelledby="widgetVideoModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="widgetVideoModalLabel">Video</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body modalBodyScroll">
+					  <ul class="nav nav-tabs" role="tablist">
+					    <li class="nav-item">
+					      <a class="nav-link active" data-toggle="tab" href="#widgetVideoTab">Video</a>
+					    </li>
+					    <li class="nav-item">
+					      <a class="nav-link" data-toggle="tab" href="#widgetVideoUploadTab">Upload</a>
+					    </li>
+					  </ul>
+					  <div class="tab-content">
+					    <div id="widgetVideoTab" class="container tab-pane active"><br>
+					      <div id="widgetVideoUploadedList" class="card-columns no-gutter-card">v</div>
+					    </div>
+					    <div id="widgetVideoUploadTab" class="container tab-pane fade"><br>
+						    <div class="form-group">
+						      <input id="widgetVideoUploadInput" type="file" class="form-control-file border" accept="video/*" multiple>
+						    </div>
+						    <div id="widgetVideoUploadResult" class="card-columns no-gutter-card"></div>
+					    </div>
+					  </div>					
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button id="widgetVideoSubmit" type="button" class="btn btn-primary">Submit</button>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
 		  		  
 		</div>
 		<p>Control</p>

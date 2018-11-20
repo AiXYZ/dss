@@ -262,5 +262,49 @@ $(document).ready(function () {
 		});
 	}
 	
+	//Video list
+	$('#widgetVideo').on('click', function(){
+		$('#widgetVideoModal').modal('show');
+		//imageUploadedList('widgetSliderUploadedList');
+	});
+	/*
+	//Slider list selection
+	var selectedSliderArray = [];
+	$('#widgetSliderUploadedList').on('click', '.card', function(){
+		$(this).removeClass('cardContainerHover');
+	    $(this).addClass('cardContainerSelected');
+	    selectedSliderImage = $(this).find('img').attr('src');
+	    selectedSliderArray.push(selectedSliderImage);
+	});	
+	
+	//Slider upload 
+    $('#widgetSliderUploadInput').on('change', function(){
+    	imageUpload('widgetSliderUploadInput', 'widgetSliderUploadResult', 'slider');
+    });	
+    
+	//Slider search
+	$('#widgetSliderSearchButton').on('click', function(){
+		var queryValue = $('#widgetSliderSearchInput').val();
+		if(queryValue){
+			unsplash(queryValue, 'widgetSliderSearchResult');
+		}
+	});
+	
+	//Slider search selection
+	$('#widgetSliderSearchResult').on('click', '.card', function(){
+		$(this).removeClass('cardContainerHover');
+	    $(this).addClass('cardContainerSelected');
+	    selectedSliderImage = $(this).find('img').attr('src');
+	    selectedSliderArray.push(selectedSliderImage);
+	});	
+	
+	//Slider submit
+	$('#widgetSliderSubmit').on('click', function(){
+		selectedFristImage = selectedSliderArray.shift();
+		$('#widgetSliderModal').modal('hide');
+		gridster.add_widget('<li class="upSlider" data-sliderimage="'+selectedSliderArray+'" style="background-image: url('+selectedFristImage+');"><span class="oi oi-layers upSliderIcon"></span></li>', 30 , 3, 1, 100);
+		selectedSliderArray = [];
+	});		
+	*/
 	
 });

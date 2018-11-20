@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>S3 Upload - Raw Javascript</title>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="videoThumbnails.js"></script>
+    </head>
+    <body>
+        <div class="container">
+
+            <p>
+                <input type="file" id="file" accept="video/*">
+                <button id="upload" onclick="upload()">Create Thumbnails</button>
+            </p>
+
+
+
+            <ul id="screenShots">
+                
+            </ul>
+        </div>
+
+        <script>
+        function upload() {
+
+            //Use a global to support the abort
+            var thumbnails = new VideoThumbnails({
+                count : 1,
+				maxWidth : 720,
+            });           
+
+            //Captured a thumb
+			
+            thumbnails.on('capture', function(image) {
+                $('#screenShots').append($('<img>').attr('src', image));
+            });
+
+            //Completed the thumbs
+            thumbnails.on('complete', function(thumbs) {
+                console.log('all done', thumbs);
+            });
+
+            //Full stats post complete with all thumbs
+            thumbnails.on('completeDetail', function(details) {
+                console.log('completeDetail', details);
+            });			
+
+            thumbnails.capture($('#file')[0].files[0]);
+        }
+        </script>
+
+
+    </body>
+</html>

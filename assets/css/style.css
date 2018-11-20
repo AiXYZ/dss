@@ -22,6 +22,12 @@
 	text-align: center;
 }
 
+.gridster .upVideo {
+	background-image: url("https://www.html5canvastutorials.com/demos/assets/dataURL.txt");
+    background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
 /*me*/
 .gridster .preview-holder {
     border: none !important;
