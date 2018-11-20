@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2018 at 02:27 PM
+-- Generation Time: Nov 20, 2018 at 07:27 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -28,26 +28,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `content` (
   `id` int(255) NOT NULL,
-  `file_name` longtext COLLATE utf8_bin
+  `file_name` longtext COLLATE utf8_bin,
+  `file_thumbnail` longtext COLLATE utf8_bin,
+  `file_type` varchar(10) COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `content`
 --
 
-INSERT INTO `content` (`id`, `file_name`) VALUES
-(1, '2018111714135278859067_YnVyZ2VyMQ==.jpg'),
-(2, '2018111714142670546853_YnVyZ2VyMg==.jpg'),
-(3, '2018111714143818743423_YnVyZ2VyMw==.jpg'),
-(4, '2018111714145168845200_YnVyZ2VyNA==.jpg'),
-(5, '2018111714164713298_Y29mZmVlMQ==.jpg'),
-(6, '2018111714165849647188_Y29mZmVlMg==.jpg'),
-(7, '2018111714170766262371_Y29mZmVlMw==.jpg'),
-(8, '2018111714172788659839_aWNlY3JlYW0x.jpg'),
-(9, '2018111714174109552546_aWNlY3JlYW0y.jpg'),
-(10, '2018111714174940298971_cGl6emEx.jpg'),
-(11, '2018111714180147228289_cGl6emEy.jpg'),
-(12, '2018111714181101725250_cGl6emEz.jpg');
+INSERT INTO `content` (`id`, `file_name`, `file_thumbnail`, `file_type`) VALUES
+(1, '2018112022250956618489_bW92X2JiYg==.mp4', '2018112022250956618489_thumbnail.png', 'video'),
+(2, '2018112022255184659764_bW92X2JiYg==.mp4', '2018112022255184659764_thumbnail.png', 'video');
 
 --
 -- Indexes for dumped tables
@@ -67,7 +59,7 @@ ALTER TABLE `content`
 -- AUTO_INCREMENT for table `content`
 --
 ALTER TABLE `content`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

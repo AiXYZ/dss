@@ -276,12 +276,13 @@ $(document).ready(function () {
 	    selectedSliderImage = $(this).find('img').attr('src');
 	    selectedSliderArray.push(selectedSliderImage);
 	});	
+	*/
 	
 	//Slider upload 
-    $('#widgetSliderUploadInput').on('change', function(){
-    	imageUpload('widgetSliderUploadInput', 'widgetSliderUploadResult', 'slider');
+    $('#widgetVideoUploadInput').on('change', function(){
+    	videoUpload('widgetVideoUploadInput', 'widgetVideoUploadResult');
     });	
-    
+    /*
 	//Slider search
 	$('#widgetSliderSearchButton').on('click', function(){
 		var queryValue = $('#widgetSliderSearchInput').val();
@@ -306,5 +307,51 @@ $(document).ready(function () {
 		selectedSliderArray = [];
 	});		
 	*/
+    
+	//Video upload function
+    function videoUpload(inputId, resultId){
+    	//Video thumbnail
+        var thumbnails = new VideoThumbnails({
+            count : 1,
+			maxWidth : 720,
+        });           
+        
+        thumbnails.capture($('#'+inputId)[0].files[0]);
+        
+        thumbnails.on('complete', function(thumbnail) {
+        	var thumbnailValue = thumbnail[0];
+        	
+        	//file upload start
+            var form_data = new FormData();
+            form_data.append('uploadFile', document.getElementById(inputId).files[0]);
+            form_data.append('thumbnailValue', thumbnailValue);
+            $.ajax({
+                url: 'assets/ajax/controller/video_upload.php',
+                dataType: 'json',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: 'POST',
+                beforeSend: function(data){
+                	$('#'+resultId).text('uploading');
+                },
+    	        success: function(data){
+    				$('#'+resultId).empty();
+    				//selectedImage = 'assets/upload/image/'+item.file; 
+    				$('#'+resultId).append(
+						'<div class="card cardContainerSelected">'+
+							'<img class="img-fluid imageHover" src="assets/upload/video/'+data.thumbnail+'">'+
+							'<div class="card-img-overlay cardCaption">'+
+								'<span class="oi oi-circle-check card-title"></span>'+
+							'</div>'+							
+						'</div>'    						
+    				);       	
+    	        }        
+            });        	
+        	//file uload end
+        });
+        
+    }    
 	
 });
