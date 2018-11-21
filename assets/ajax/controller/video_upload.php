@@ -23,7 +23,7 @@ if(isset($_FILES['uploadFile']) && !empty($_FILES['uploadFile'])){
         
         if(move_uploaded_file($_FILES['uploadFile']['tmp_name'], '../../upload/video/' . $uploadedFileName)){
             
-            $nameThumbnail = $u_code.'_thumbnail.png';
+            $nameThumbnail = $u_code.'_'.$encodeFileName.'.png';
             $base64String = $_POST['thumbnailValue'];
             $fileThumbnail = fopen('../../upload/video/'.$nameThumbnail, "wb");
             $dataThumbnail = explode(',', $base64String);

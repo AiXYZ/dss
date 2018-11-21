@@ -23,9 +23,9 @@
 }
 
 .gridster .upVideo {
-	background-image: url("https://www.html5canvastutorials.com/demos/assets/dataURL.txt");
     background-repeat: no-repeat;
 	background-size: 100% 100%;
+	text-align: center;
 }
 
 /*me*/
@@ -122,6 +122,13 @@
 }
 
 .upSliderIcon{
+	top: 40%;
+	text-shadow: 2px 2px 0 #212121, -1px -1px 0 #212121, 1px -1px 0 #212121, -1px 1px 0 #212121, 1px 1px 0 #212121;
+	font-size: 20px;
+	color: #ffffff;
+}
+
+.upVideoIcon{
 	top: 40%;
 	text-shadow: 2px 2px 0 #212121, -1px -1px 0 #212121, 1px -1px 0 #212121, -1px 1px 0 #212121, 1px 1px 0 #212121;
 	font-size: 20px;

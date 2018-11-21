@@ -22,7 +22,7 @@ if(isset($_FILES['uploadFile']) && !empty($_FILES['uploadFile'])){
             $uploadedFileName = uCode().'_'.$encodeFileName.'.'.$fileExtension;
             
             if(move_uploaded_file($_FILES['uploadFile']['tmp_name'][$i], '../../upload/image/' . $uploadedFileName)){
-                mysqli_query($db,"INSERT INTO content (file_name) VALUES('$uploadedFileName')");
+                mysqli_query($db,"INSERT INTO content (file_name, file_type) VALUES('$uploadedFileName', 'image')");
                 $data[] = array(
                     'response' => 'File successfully uploaded',
                     'file' => $uploadedFileName

@@ -265,48 +265,28 @@ $(document).ready(function () {
 	//Video list
 	$('#widgetVideo').on('click', function(){
 		$('#widgetVideoModal').modal('show');
-		//imageUploadedList('widgetSliderUploadedList');
+		videoUploadedList('widgetVideoUploadedList');
 	});
-	/*
-	//Slider list selection
-	var selectedSliderArray = [];
-	$('#widgetSliderUploadedList').on('click', '.card', function(){
+	
+	//Video list selection
+	var selectedVideo = '';
+	$('#widgetVideoUploadedList').on('click', '.card', function(){
 		$(this).removeClass('cardContainerHover');
 	    $(this).addClass('cardContainerSelected');
-	    selectedSliderImage = $(this).find('img').attr('src');
-	    selectedSliderArray.push(selectedSliderImage);
+	    selectedVideo = $(this).find('img').attr('src');
 	});	
-	*/
 	
-	//Slider upload 
+	//Video upload 
     $('#widgetVideoUploadInput').on('change', function(){
     	videoUpload('widgetVideoUploadInput', 'widgetVideoUploadResult');
     });	
-    /*
-	//Slider search
-	$('#widgetSliderSearchButton').on('click', function(){
-		var queryValue = $('#widgetSliderSearchInput').val();
-		if(queryValue){
-			unsplash(queryValue, 'widgetSliderSearchResult');
-		}
-	});
 	
-	//Slider search selection
-	$('#widgetSliderSearchResult').on('click', '.card', function(){
-		$(this).removeClass('cardContainerHover');
-	    $(this).addClass('cardContainerSelected');
-	    selectedSliderImage = $(this).find('img').attr('src');
-	    selectedSliderArray.push(selectedSliderImage);
-	});	
-	
-	//Slider submit
-	$('#widgetSliderSubmit').on('click', function(){
-		selectedFristImage = selectedSliderArray.shift();
-		$('#widgetSliderModal').modal('hide');
-		gridster.add_widget('<li class="upSlider" data-sliderimage="'+selectedSliderArray+'" style="background-image: url('+selectedFristImage+');"><span class="oi oi-layers upSliderIcon"></span></li>', 30 , 3, 1, 100);
-		selectedSliderArray = [];
+	//Video submit
+	$('#widgetVideoSubmit').on('click', function(){
+		$('#widgetVideoModal').modal('hide');
+		gridster.add_widget('<li class="upVideo" data-image="'+selectedVideo+'" style="background-image: url('+selectedVideo+');"><span class="oi oi-play-circle upVideoIcon"></span></li>', 30 , 3, 1, 100);
+		selectedVideo = '';
 	});		
-	*/
     
 	//Video upload function
     function videoUpload(inputId, resultId){
@@ -338,7 +318,7 @@ $(document).ready(function () {
                 },
     	        success: function(data){
     				$('#'+resultId).empty();
-    				//selectedImage = 'assets/upload/image/'+item.file; 
+    				selectedVideo = 'assets/upload/video/'+data.thumbnail; 
     				$('#'+resultId).append(
 						'<div class="card cardContainerSelected">'+
 							'<img class="img-fluid imageHover" src="assets/upload/video/'+data.thumbnail+'">'+
@@ -351,7 +331,31 @@ $(document).ready(function () {
             });        	
         	//file uload end
         });
-        
-    }    
+    }
+    
+	//Video uploaded list function
+	function videoUploadedList(id){
+		$.ajax({
+			url: "assets/ajax/controller/video_list.php",
+			type: "POST",
+			dataType:'json',
+			data:{
+				image: 'test',
+			}
+		}).done(function(data){
+			$('#'+id).empty();
+			$.each(data, function(i, item){
+				$('#'+id).append(
+					'<div class="card cardContainerHover">'+
+						'<img class="img-fluid imageHover" src="assets/upload/video/'+item.file_thumbnail+'">'+
+						'<div class="card-img-overlay cardCaption">'+
+							'<span class="oi oi-circle-check card-title"></span>'+
+							'<p class="card-text">'+item.actual_file_name+'</p>'+
+						'</div>'+							
+					'</div>'			
+				);				
+			});
+		});		
+	}    
 	
 });
