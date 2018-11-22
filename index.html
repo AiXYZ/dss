@@ -38,176 +38,178 @@
 			    <ul></ul>
 		      </div>
 		  </div>
-		  <!-- Text Modal -->
-		  <div class="modal fade" id="widgetTextModal" tabindex="-1" role="dialog" aria-labelledby="widgetTextModalLabel" aria-hidden="true">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="widgetTextModalLabel">Text</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body modalBodyScroll">
-					<div class="input-group mb-3">
-					  <div class="input-group-prepend">
-					    <span id="widgetTextBg" class="input-group-text" title="Background Color"><span class="oi oi-grid-three-up"></span></span>
-					  </div>
-					  <textarea id="widgetTextInput" class="form-control" aria-label="Background Color" rows="3" style="background-color: rgb(112, 128, 144); color: rgb(255, 255, 255);"></textarea>
-					</div>	
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <button id="widgetTextSubmit" type="button" class="btn btn-primary">Submit</button>
-			      </div>
-			    </div>
-			  </div>
-		  </div>
-		  <!-- Image Modal -->
-		  <div class="modal fade" id="widgetImageModal" tabindex="-1" role="dialog" aria-labelledby="widgetImageModalLabel" aria-hidden="true">
-			  <div class="modal-dialog modal-lg" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="widgetImageModalLabel">Image</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body modalBodyScroll">
-					  <ul class="nav nav-tabs" role="tablist">
-					    <li class="nav-item">
-					      <a class="nav-link active" data-toggle="tab" href="#widgetImageTab">Image</a>
-					    </li>
-					    <li class="nav-item">
-					      <a class="nav-link" data-toggle="tab" href="#widgetImageUploadTab">Upload</a>
-					    </li>
-					    <li class="nav-item">
-					      <a class="nav-link" data-toggle="tab" href="#widgetImageSearchTab">Search</a>
-					    </li>
-					  </ul>
-					  <div class="tab-content">
-					    <div id="widgetImageTab" class="container tab-pane active"><br>
-					      <div id="widgetImageUploadedList" class="card-columns no-gutter-card"></div>
-					    </div>
-					    <div id="widgetImageUploadTab" class="container tab-pane fade"><br>
-						    <div class="form-group">
-						      <input id="widgetImageUploadInput" type="file" class="form-control-file border" accept="image/*">
-						    </div>
-						    <div id="widgetImageUploadResult" class="card-columns no-gutter-card"></div>
-					    </div>
-					    <div id="widgetImageSearchTab" class="container tab-pane fade"><br>
-							<div class="input-group mb-3">
-							  <input id="widgetImageSearchInput" type="text" class="form-control" placeholder="Search">
-							  <div class="input-group-append">
-							    <button id="widgetImageSearchButton" class="btn btn-success" type="button"><span class="oi oi-magnifying-glass"></span></button> 
-							  </div>
-							</div>
-						    <div id="widgetImageSearchResult" class="card-columns no-gutter-card"></div>
-					    </div>
-					  </div>					
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <button id="widgetImageSubmit" type="button" class="btn btn-primary">Submit</button>
-			      </div>
-			    </div>
-			  </div>
-		  </div>
-		  <!-- Slider Modal --> 
-		  <div class="modal fade" id="widgetSliderModal" tabindex="-1" role="dialog" aria-labelledby="widgetSliderModalLabel" aria-hidden="true">
-			  <div class="modal-dialog modal-lg" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="widgetSliderModalLabel">Slider</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body modalBodyScroll">
-					  <ul class="nav nav-tabs" role="tablist">
-					    <li class="nav-item">
-					      <a class="nav-link active" data-toggle="tab" href="#widgetSliderTab">Image</a>
-					    </li>
-					    <li class="nav-item">
-					      <a class="nav-link" data-toggle="tab" href="#widgetSliderUploadTab">Upload</a>
-					    </li>
-					    <li class="nav-item">
-					      <a class="nav-link" data-toggle="tab" href="#widgetSliderSearchTab">Search</a>
-					    </li>
-					  </ul>
-					  <div class="tab-content">
-					    <div id="widgetSliderTab" class="container tab-pane active"><br>
-					      <div id="widgetSliderUploadedList" class="card-columns no-gutter-card"></div>
-					    </div>
-					    <div id="widgetSliderUploadTab" class="container tab-pane fade"><br>
-						    <div class="form-group">
-						      <input id="widgetSliderUploadInput" type="file" class="form-control-file border" accept="image/*" multiple>
-						    </div>
-						    <div id="widgetSliderUploadResult" class="card-columns no-gutter-card"></div>
-					    </div>
-					    <div id="widgetSliderSearchTab" class="container tab-pane fade"><br>
-							<div class="input-group mb-3">
-							  <input id="widgetSliderSearchInput" type="text" class="form-control" placeholder="Search">
-							  <div class="input-group-append">
-							    <button id="widgetSliderSearchButton" class="btn btn-success" type="button"><span class="oi oi-magnifying-glass"></span></button> 
-							  </div>
-							</div>
-						    <div id="widgetSliderSearchResult" class="card-columns no-gutter-card"></div>			
-					    </div>
-					  </div>					
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <button id="widgetSliderSubmit" type="button" class="btn btn-primary">Submit</button>
-			      </div>
-			    </div>
-			  </div>
-		  </div>		  	  
-		  <!-- Video Modal --> 
-		  <div class="modal fade" id="widgetVideoModal" tabindex="-1" role="dialog" aria-labelledby="widgetVideoModalLabel" aria-hidden="true">
-			  <div class="modal-dialog modal-lg" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="widgetVideoModalLabel">Video</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body modalBodyScroll">
-					  <ul class="nav nav-tabs" role="tablist">
-					    <li class="nav-item">
-					      <a class="nav-link active" data-toggle="tab" href="#widgetVideoTab">Video</a>
-					    </li>
-					    <li class="nav-item">
-					      <a class="nav-link" data-toggle="tab" href="#widgetVideoUploadTab">Upload</a>
-					    </li>
-					  </ul>
-					  <div class="tab-content">
-					    <div id="widgetVideoTab" class="container tab-pane active"><br>
-					      <div id="widgetVideoUploadedList" class="card-columns no-gutter-card">v</div>
-					    </div>
-					    <div id="widgetVideoUploadTab" class="container tab-pane fade"><br>
-						    <div class="form-group">
-						      <input id="widgetVideoUploadInput" type="file" class="form-control-file border" accept="video/*">
-						    </div>
-						    <div id="widgetVideoUploadResult" class="card-columns no-gutter-card"></div>
-					    </div>
-					  </div>					
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <button id="widgetVideoSubmit" type="button" class="btn btn-primary">Submit</button>
-			      </div>
-			    </div>
-			  </div>
-		  </div>
-		  		  
 		</div>
+		
+	  	<!-- Text Modal -->
+	  	<div class="modal fade" id="widgetTextModal" tabindex="-1" role="dialog" aria-labelledby="widgetTextModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="widgetTextModalLabel">Text</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body modalBodyScroll">
+				<div class="input-group mb-3">
+				  <div class="input-group-prepend">
+				    <span id="widgetTextBg" class="input-group-text" title="Background Color"><span class="oi oi-grid-three-up"></span></span>
+				  </div>
+				  <textarea id="widgetTextInput" class="form-control" aria-label="Background Color" rows="3" style="background-color: rgb(112, 128, 144); color: rgb(255, 255, 255);"></textarea>
+				</div>	
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button id="widgetTextSubmit" type="button" class="btn btn-primary">Submit</button>
+		      </div>
+		    </div>
+		  </div>
+	  	</div>
+	  	<!-- Image Modal -->
+	  	<div class="modal fade" id="widgetImageModal" tabindex="-1" role="dialog" aria-labelledby="widgetImageModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="widgetImageModalLabel">Image</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body modalBodyScroll">
+				  <ul class="nav nav-tabs" role="tablist">
+				    <li class="nav-item">
+				      <a class="nav-link active" data-toggle="tab" href="#widgetImageTab">Image</a>
+				    </li>
+				    <li class="nav-item">
+				      <a class="nav-link" data-toggle="tab" href="#widgetImageUploadTab">Upload</a>
+				    </li>
+				    <li class="nav-item">
+				      <a class="nav-link" data-toggle="tab" href="#widgetImageSearchTab">Search</a>
+				    </li>
+				  </ul>
+				  <div class="tab-content">
+				    <div id="widgetImageTab" class="container tab-pane active"><br>
+				      <div id="widgetImageUploadedList" class="card-columns no-gutter-card"></div>
+				    </div>
+				    <div id="widgetImageUploadTab" class="container tab-pane fade"><br>
+					    <div class="form-group">
+					      <input id="widgetImageUploadInput" type="file" class="form-control-file border" accept="image/*">
+					    </div>
+					    <div id="widgetImageUploadResult" class="card-columns no-gutter-card"></div>
+				    </div>
+				    <div id="widgetImageSearchTab" class="container tab-pane fade"><br>
+						<div class="input-group mb-3">
+						  <input id="widgetImageSearchInput" type="text" class="form-control" placeholder="Search">
+						  <div class="input-group-append">
+						    <button id="widgetImageSearchButton" class="btn btn-success" type="button"><span class="oi oi-magnifying-glass"></span></button> 
+						  </div>
+						</div>
+					    <div id="widgetImageSearchResult" class="card-columns no-gutter-card"></div>
+				    </div>
+				  </div>					
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button id="widgetImageSubmit" type="button" class="btn btn-primary">Submit</button>
+		      </div>
+		    </div>
+		  </div>
+	  	</div>
+	  	<!-- Slider Modal --> 
+	  	<div class="modal fade" id="widgetSliderModal" tabindex="-1" role="dialog" aria-labelledby="widgetSliderModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="widgetSliderModalLabel">Slider</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body modalBodyScroll">
+				  <ul class="nav nav-tabs" role="tablist">
+				    <li class="nav-item">
+				      <a class="nav-link active" data-toggle="tab" href="#widgetSliderTab">Image</a>
+				    </li>
+				    <li class="nav-item">
+				      <a class="nav-link" data-toggle="tab" href="#widgetSliderUploadTab">Upload</a>
+				    </li>
+				    <li class="nav-item">
+				      <a class="nav-link" data-toggle="tab" href="#widgetSliderSearchTab">Search</a>
+				    </li>
+				  </ul>
+				  <div class="tab-content">
+				    <div id="widgetSliderTab" class="container tab-pane active"><br>
+				      <div id="widgetSliderUploadedList" class="card-columns no-gutter-card"></div>
+				    </div>
+				    <div id="widgetSliderUploadTab" class="container tab-pane fade"><br>
+					    <div class="form-group">
+					      <input id="widgetSliderUploadInput" type="file" class="form-control-file border" accept="image/*" multiple>
+					    </div>
+					    <div id="widgetSliderUploadResult" class="card-columns no-gutter-card"></div>
+				    </div>
+				    <div id="widgetSliderSearchTab" class="container tab-pane fade"><br>
+						<div class="input-group mb-3">
+						  <input id="widgetSliderSearchInput" type="text" class="form-control" placeholder="Search">
+						  <div class="input-group-append">
+						    <button id="widgetSliderSearchButton" class="btn btn-success" type="button"><span class="oi oi-magnifying-glass"></span></button> 
+						  </div>
+						</div>
+					    <div id="widgetSliderSearchResult" class="card-columns no-gutter-card"></div>			
+				    </div>
+				  </div>					
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button id="widgetSliderSubmit" type="button" class="btn btn-primary">Submit</button>
+		      </div>
+		    </div>
+		  </div>
+	  	</div>		  	  
+	  	<!-- Video Modal --> 
+	  	<div class="modal fade" id="widgetVideoModal" tabindex="-1" role="dialog" aria-labelledby="widgetVideoModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="widgetVideoModalLabel">Video</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body modalBodyScroll">
+				  <ul class="nav nav-tabs" role="tablist">
+				    <li class="nav-item">
+				      <a class="nav-link active" data-toggle="tab" href="#widgetVideoTab">Video</a>
+				    </li>
+				    <li class="nav-item">
+				      <a class="nav-link" data-toggle="tab" href="#widgetVideoUploadTab">Upload</a>
+				    </li>
+				  </ul>
+				  <div class="tab-content">
+				    <div id="widgetVideoTab" class="container tab-pane active"><br>
+				      <div id="widgetVideoUploadedList" class="card-columns no-gutter-card">v</div>
+				    </div>
+				    <div id="widgetVideoUploadTab" class="container tab-pane fade"><br>
+					    <div class="form-group">
+					      <input id="widgetVideoUploadInput" type="file" class="form-control-file border" accept="video/*">
+					    </div>
+					    <div id="widgetVideoUploadResult" class="card-columns no-gutter-card"></div>
+				    </div>
+				  </div>					
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button id="widgetVideoSubmit" type="button" class="btn btn-primary">Submit</button>
+		      </div>
+		    </div>
+		  </div>
+	  	</div>
+	  	
+		<!-- Control -->
 		<p>Control</p>
 		<button id="getCoordinates" type="button" class="btn btn-primary">Coordinates</button>
 		<p>Log</p>
-	
-		<div id="log"></div> 
+		<div id="log"></div>
+		
 	</div>  
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="assets/jquery/jquery-3.3.1.min.js"></script>
