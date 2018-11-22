@@ -138,11 +138,15 @@ $(document).ready(function () {
 	
 	//Slider list selection
 	var selectedSliderArray = [];
+	var selectedSliderLinkArray = [];
 	$('#widgetSliderUploadedList').on('click', '.card', function(){
 		$(this).removeClass('cardContainerHover');
 	    $(this).addClass('cardContainerSelected');
-	    selectedSliderImage = $(this).find('img').attr('src');
+	    selectedSliderImage = $(this).find('img').attr('data-imagelist');
+	    selectedSliderImageLink = $(this).find('img').attr('src');
 	    selectedSliderArray.push(selectedSliderImage);
+	    selectedSliderLinkArray.push(selectedSliderImageLink);
+	    
 	});	
 	
 	//Slider upload 
@@ -162,16 +166,19 @@ $(document).ready(function () {
 	$('#widgetSliderSearchResult').on('click', '.card', function(){
 		$(this).removeClass('cardContainerHover');
 	    $(this).addClass('cardContainerSelected');
-	    selectedSliderImage = $(this).find('img').attr('src');
+	    selectedSliderImage = $(this).find('img').attr('data-imagelist');
+	    selectedSliderImageLink = $(this).find('img').attr('src');
 	    selectedSliderArray.push(selectedSliderImage);
+	    selectedSliderLinkArray.push(selectedSliderImageLink);	    
 	});	
 	
 	//Slider submit
 	$('#widgetSliderSubmit').on('click', function(){
-		selectedFristImage = selectedSliderArray.shift();
+		selectedFristImage = selectedSliderLinkArray.shift();
 		$('#widgetSliderModal').modal('hide');
 		gridster.add_widget('<li class="upSlider" data-sliderimage="'+selectedSliderArray+'" style="background-image: url('+selectedFristImage+');"><span class="oi oi-layers upSliderIcon"></span></li>', 30 , 3, 1, 100);
 		selectedSliderArray = [];
+		selectedSliderLinkArray = [];
 	});	
 	
 	//Image uploaded list function
@@ -224,7 +231,8 @@ $(document).ready(function () {
 						selectedImage = item.file;
 						selectedImageLink = 'assets/upload/image/'+item.file;						
 					}else{
-						selectedSliderArray.push('assets/upload/image/'+item.file);
+					    selectedSliderArray.push(item.file);
+					    selectedSliderLinkArray.push('assets/upload/image/'+item.file);						
 					}
 					$('#'+resultId).append(
 						'<div class="card cardContainerSelected">'+
