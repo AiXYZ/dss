@@ -41,27 +41,30 @@ $(document).ready(function () {
     
     //Screen data
 	$('#getScreenData').on('click', function(){
-        /*
-		var positions = gridster.serialize();
-        $('#log').text(JSON.stringify(positions));
-        console.log(JSON.stringify(positions));
-        */
-		
-		//[{"col":1,"row":1,"size_x":30,"size_y":3},{"col":1,"row":4,"size_x":75,"size_y":7}]
-		
 		var dataScreen = [];
 		$('.gridster  ul li').each(function(i) {
 	    	  var dataCol = $(this).attr('data-col');
 	    	  var dataRow = $(this).attr('data-row');
 	    	  var dataSizex = $(this).attr('data-sizex');
 	    	  var dataSizey = $(this).attr('data-sizey');
+	    	  var dataType = $(this).attr('data-type');
+	    	  var dataContent = $(this).attr('data-content');
 	    	  
-	    	  var dataWidget = '{"col":'+dataCol+', "row":'+dataRow+', "size_x":'+dataSizex+', "size_y":'+dataSizey+', "serial_n":'+i+'}';
+	    	  var dataWidget = '{"col":'+dataCol+', "row":'+dataRow+', "size_x":'+dataSizex+', "size_y":'+dataSizey+', "serial_n":'+i+', "type":'+dataType+', "content":'+dataContent+'}';
 	    	  dataScreen.push(dataWidget);
-	    	  console.log(dataWidget);
 		});
 		
-		//console.log(dataScreen);
+		var dataScreenString = dataScreen.toString();
+		$.ajax({
+			url: "assets/ajax/controller/insert_screen.php",
+			type: "POST",
+			dataType:'json',
+			data:{
+				screen: dataScreenString,
+			}
+		}).done(function(data){
+			console.log(data);
+		});
 	}); 
 	
     //Text
@@ -93,7 +96,7 @@ $(document).ready(function () {
 	$('#widgetTextSubmit').on('click', function(){
 		var widgetTextValue = $('#widgetTextInput').val();
 		var widgetTextBg = $('#widgetTextInput').attr('style');
-		gridster.add_widget('<li class="upText" data-text="'+widgetTextValue+'" style="'+widgetTextBg+' font-size: 35px;">'+widgetTextValue+'</li>', 30 , 1, 1, 100);
+		gridster.add_widget('<li class="upText" data-type="text" data-content="'+widgetTextValue+'" style="'+widgetTextBg+' font-size: 35px;">'+widgetTextValue+'</li>', 30 , 1, 1, 100);
 		$('#widgetTextModal').modal('hide');
 	});	    
 	
@@ -138,7 +141,7 @@ $(document).ready(function () {
 	//Image submit
 	$('#widgetImageSubmit').on('click', function(){
 		$('#widgetImageModal').modal('hide');
-		gridster.add_widget('<li class="upImage" data-image="'+selectedImage+'" style="background-image: url('+selectedImageLink+');"></li>', 30 , 3, 1, 100);
+		gridster.add_widget('<li class="upImage" data-type="image" data-content="'+selectedImage+'" style="background-image: url('+selectedImageLink+');"></li>', 30 , 3, 1, 100);
 		selectedImage = '';
 		selectedImageLink = '';
 	});
@@ -189,7 +192,7 @@ $(document).ready(function () {
 	$('#widgetSliderSubmit').on('click', function(){
 		selectedFristImage = selectedSliderLinkArray.shift();
 		$('#widgetSliderModal').modal('hide');
-		gridster.add_widget('<li class="upSlider" data-sliderimage="'+selectedSliderArray+'" style="background-image: url('+selectedFristImage+');"><span class="oi oi-layers upSliderIcon"></span></li>', 30 , 3, 1, 100);
+		gridster.add_widget('<li class="upSlider" data-type="slider" data-content="'+selectedSliderArray+'" style="background-image: url('+selectedFristImage+');"><span class="oi oi-layers upSliderIcon"></span></li>', 30 , 3, 1, 100);
 		selectedSliderArray = [];
 		selectedSliderLinkArray = [];
 	});	
@@ -312,7 +315,7 @@ $(document).ready(function () {
 	//Video submit
 	$('#widgetVideoSubmit').on('click', function(){
 		$('#widgetVideoModal').modal('hide');
-		gridster.add_widget('<li class="upVideo" data-video="'+selectedVideo+'" style="background-image: url('+selectedVideoThumbnail+');"><span class="oi oi-play-circle upVideoIcon"></span></li>', 30 , 3, 1, 100);
+		gridster.add_widget('<li class="upVideo" data-type="video" data-content="'+selectedVideo+'" style="background-image: url('+selectedVideoThumbnail+');"><span class="oi oi-play-circle upVideoIcon"></span></li>', 30 , 3, 1, 100);
 		selectedVideoThumbnail = '';
 		selectedVideo = '';
 	});		
