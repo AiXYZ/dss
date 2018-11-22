@@ -1,0 +1,8 @@
+.container-fluid-no-padding{
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.body-no-scroll{
+	overflow: hidden
+}
