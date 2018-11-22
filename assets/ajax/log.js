@@ -269,11 +269,13 @@ $(document).ready(function () {
 	});
 	
 	//Video list selection
+	var selectedVideoThumbnail = '';
 	var selectedVideo = '';
 	$('#widgetVideoUploadedList').on('click', '.card', function(){
 		$(this).removeClass('cardContainerHover');
 	    $(this).addClass('cardContainerSelected');
-	    selectedVideo = $(this).find('img').attr('src');
+	    selectedVideoThumbnail = $(this).find('img').attr('src');
+	    selectedVideo = $(this).find('img').attr('data-videolist');
 	});	
 	
 	//Video upload 
@@ -284,7 +286,8 @@ $(document).ready(function () {
 	//Video submit
 	$('#widgetVideoSubmit').on('click', function(){
 		$('#widgetVideoModal').modal('hide');
-		gridster.add_widget('<li class="upVideo" data-image="'+selectedVideo+'" style="background-image: url('+selectedVideo+');"><span class="oi oi-play-circle upVideoIcon"></span></li>', 30 , 3, 1, 100);
+		gridster.add_widget('<li class="upVideo" data-video="'+selectedVideo+'" style="background-image: url('+selectedVideoThumbnail+');"><span class="oi oi-play-circle upVideoIcon"></span></li>', 30 , 3, 1, 100);
+		selectedVideoThumbnail = '';
 		selectedVideo = '';
 	});		
     
@@ -318,10 +321,11 @@ $(document).ready(function () {
                 },
     	        success: function(data){
     				$('#'+resultId).empty();
-    				selectedVideo = 'assets/upload/video/'+data.thumbnail; 
+    				selectedVideoThumbnail = 'assets/upload/video/'+data.thumbnail;
+    				selectedVideo = data.file;
     				$('#'+resultId).append(
 						'<div class="card cardContainerSelected">'+
-							'<img class="img-fluid imageHover" src="assets/upload/video/'+data.thumbnail+'">'+
+							'<img data-videolist="'+data.file+'" class="img-fluid imageHover" src="assets/upload/video/'+data.thumbnail+'">'+
 							'<div class="card-img-overlay cardCaption">'+
 								'<span class="oi oi-circle-check card-title"></span>'+
 							'</div>'+							
@@ -347,7 +351,7 @@ $(document).ready(function () {
 			$.each(data, function(i, item){
 				$('#'+id).append(
 					'<div class="card cardContainerHover">'+
-						'<img class="img-fluid imageHover" src="assets/upload/video/'+item.file_thumbnail+'">'+
+						'<img data-videolist="'+item.file_name+'" class="img-fluid imageHover" src="assets/upload/video/'+item.file_thumbnail+'">'+
 						'<div class="card-img-overlay cardCaption">'+
 							'<span class="oi oi-circle-check card-title"></span>'+
 							'<p class="card-text">'+item.actual_file_name+'</p>'+
