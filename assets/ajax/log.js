@@ -39,16 +39,29 @@ $(document).ready(function () {
     $('.gridster  ul').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
     $('.gridster').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
     
-    //Coordinates
-	$('#getCoordinates').on('click', function(){
+    //Screen data
+	$('#getScreenData').on('click', function(){
+        /*
+		var positions = gridster.serialize();
+        $('#log').text(JSON.stringify(positions));
+        console.log(JSON.stringify(positions));
+        */
+		
+		//[{"col":1,"row":1,"size_x":30,"size_y":3},{"col":1,"row":4,"size_x":75,"size_y":7}]
+		
+		var dataScreen = [];
 		$('.gridster  ul li').each(function(i) {
-	    	  var dataSizey = $(this).attr('data-sizey');
-	    	  var dataSizex = $(this).attr('data-sizex');
 	    	  var dataCol = $(this).attr('data-col');
 	    	  var dataRow = $(this).attr('data-row');
+	    	  var dataSizex = $(this).attr('data-sizex');
+	    	  var dataSizey = $(this).attr('data-sizey');
 	    	  
-	    	  console.log(i+': '+dataSizey+'_'+dataSizex+'_'+dataCol+'_'+dataRow);
+	    	  var dataWidget = '{"col":'+dataCol+', "row":'+dataRow+', "size_x":'+dataSizex+', "size_y":'+dataSizey+', "serial_n":'+i+'}';
+	    	  dataScreen.push(dataWidget);
+	    	  console.log(dataWidget);
 		});
+		
+		//console.log(dataScreen);
 	}); 
 	
     //Text
