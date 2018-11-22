@@ -93,10 +93,12 @@ $(document).ready(function () {
 	
 	//Image list selection
 	var selectedImage = '';
+	var selectedImageLink = '';
 	$('#widgetImageUploadedList').on('click', '.card', function(){
 		$(this).removeClass('cardContainerHover');
 	    $(this).addClass('cardContainerSelected');
-	    selectedImage = $(this).find('img').attr('src');
+	    selectedImage = $(this).find('img').attr('data-imagelist');
+	    selectedImageLink = $(this).find('img').attr('src');
 	});	
 	
 	//Image upload
@@ -116,14 +118,16 @@ $(document).ready(function () {
 	$('#widgetImageSearchResult').on('click', '.card', function(){
 		$(this).removeClass('cardContainerHover');
 	    $(this).addClass('cardContainerSelected');
-	    selectedImage = $(this).find('img').attr('src');
+	    selectedImage = $(this).find('img').attr('data-imagelist');
+	    selectedImageLink = $(this).find('img').attr('src');	    
 	});	
 	
 	//Image submit
 	$('#widgetImageSubmit').on('click', function(){
 		$('#widgetImageModal').modal('hide');
-		gridster.add_widget('<li class="upImage" data-image="'+selectedImage+'" style="background-image: url('+selectedImage+');"></li>', 30 , 3, 1, 100);
+		gridster.add_widget('<li class="upImage" data-image="'+selectedImage+'" style="background-image: url('+selectedImageLink+');"></li>', 30 , 3, 1, 100);
 		selectedImage = '';
+		selectedImageLink = '';
 	});
 	
 	//Slider list
@@ -184,7 +188,7 @@ $(document).ready(function () {
 			$.each(data, function(i, item){
 				$('#'+id).append(
 					'<div class="card cardContainerHover">'+
-						'<img class="img-fluid imageHover" src="assets/upload/image/'+item.file_name+'">'+
+						'<img data-imagelist="'+item.file_name+'"  class="img-fluid imageHover" src="assets/upload/image/'+item.file_name+'">'+
 						'<div class="card-img-overlay cardCaption">'+
 							'<span class="oi oi-circle-check card-title"></span>'+
 							'<p class="card-text">'+item.actual_file_name+'</p>'+
@@ -217,13 +221,14 @@ $(document).ready(function () {
 				$('#'+resultId).empty();
 				$.each(data, function(i, item){
 					if(type == 'image'){
-						selectedImage = 'assets/upload/image/'+item.file;
+						selectedImage = item.file;
+						selectedImageLink = 'assets/upload/image/'+item.file;						
 					}else{
 						selectedSliderArray.push('assets/upload/image/'+item.file);
 					}
 					$('#'+resultId).append(
 						'<div class="card cardContainerSelected">'+
-							'<img class="img-fluid imageHover" src="assets/upload/image/'+item.file+'">'+
+							'<img data-imagelist="'+item.file+'" class="img-fluid imageHover" src="assets/upload/image/'+item.file+'">'+
 							'<div class="card-img-overlay cardCaption">'+
 								'<span class="oi oi-circle-check card-title"></span>'+
 							'</div>'+							
@@ -251,7 +256,7 @@ $(document).ready(function () {
 				$.each(data['results'], function(i, item){
 					$('#'+resultId).append(
 						'<div class="card cardContainerHover">'+
-							'<img class="img-fluid imageHover" src="'+item.urls.small+'">'+
+							'<img data-imagelist="'+item.urls.small+'" class="img-fluid imageHover" src="'+item.urls.small+'">'+
 							'<div class="card-img-overlay cardCaption">'+
 								'<span class="oi oi-circle-check card-title"></span>'+
 							'</div>'+							
