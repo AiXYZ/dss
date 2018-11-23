@@ -7,29 +7,7 @@ $(document).ready(function () {
         min_cols: 1,
         max_cols: 128,
         avoid_overlapped_widgets: false,
-        widget_margins: [0, 0],
-        resize: {
-            enabled: true,
-            start: function (e, ui, $widget) {
-                console.log('START position: ' + ui.position.top + ' ' + ui.position.left);
-            },
-            resize: function (e, ui, $widget) {
-                if($.inArray('upText', $widget[0]['classList']) !== -1){
-                	$($widget).css('font-size', this.resize_coords.data.height*0.70);
-                }
-            },            
-            stop: function (e, ui, $widget) {
-                console.log('STOP position: ' + ui.position.top + ' ' + ui.position.left);
-            }
-        },
-		draggable: {
-	        start: function (e, ui, $widget) {
-	            console.log('START position: ' + ui.position.top + ' ' + ui.position.left);
-	        },
-	        stop: function (e, ui, $widget) {
-	            console.log('STOP position: ' + ui.position.top + ' ' + ui.position.left);
-	        }
-	    }    
+        widget_margins: [0, 0],  
     }).data('gridster');
     
 	$.ajax({
@@ -44,7 +22,27 @@ $(document).ready(function () {
 		
 	    gridster.remove_all_widgets();
 	    $.each(screen, function () {
-	    	gridster.add_widget('<li />', this.size_x, this.size_y, this.col, this.row);
+	    	if(this.type == 'text'){
+	    		var htmlContent = '<li class="screenContent textContent">'+this.content+'</li>';
+	    	}
+	    	if(this.type == 'image'){
+	    		var htmlContent = '<li class="screenContent"><img class="imageContent" src="assets/upload/image/'+this.content+'"></li>';
+	    	}
+	    	if(this.type == 'slider'){
+	    		var sliderImage = this.content;
+	    		var sliderImageArray = sliderImage.split(',');
+	    		var sliderFristImage = sliderImageArray.shift();
+	    		var htmlContent = '<li class="screenContent"><img class="sliderContent" data-slider="'+this.content+'" src="assets/upload/image/'+sliderFristImage+'"></li>';
+	    	}	    	
+	    	if(this.type == 'video'){
+	    		var htmlContent = '<li class="screenContent">'+
+	    				'<video width="100%" height="100%" class="videoContent" autoplay loop muted poster="assets/upload/video/2018112113350060569245_Y29mZmVlMg==.png">'+
+	    					'<source src="assets/upload/video/'+this.content+'" type="video/mp4">'+
+	    				'</video>'+
+	    			'</li>';
+	    	}	    	
+	    	
+	    	gridster.add_widget(htmlContent, this.size_x, this.size_y, this.col, this.row);
 	    });
 	});    
     
@@ -55,4 +53,21 @@ $(document).ready(function () {
     $('.gridster  ul').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
     $('.gridster').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
     
+    //Slider
+//    $(".sliderContent").ready(function() {
+//    	var dataSlider = $('.sliderContent').attr('data-slider');
+//    	console.log(dataSlider);
+//	});    
+  
+    //$(this).data("id")
+	//var dataSliderArray = dataSlider.split(',');
+	
+	
+    /*
+	var image = new Array(); 
+    for(int i=0;i<20;i++){ 
+    image[i] = new Image(); 
+    image[i].src = "images/names" + i + ".jpg"; // file path 
+    }
+    */
 });

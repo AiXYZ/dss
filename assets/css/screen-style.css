@@ -6,3 +6,42 @@
 .body-no-scroll{
 	overflow: hidden
 }
+
+.gridster ul {
+	list-style-type: none;
+    background-color: #FFFFFF;
+}
+
+.gridster li {
+    list-style: none;
+}
+
+.gridster .textContent {
+	font-size: fit-height;
+	background-color: rgb(138, 43, 226);
+	text-align: left;
+	color: #ffffff;
+	display: flex;
+    align-items: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: clip;
+	
+}
+
+.gridster .imageContent {
+	width: 100%;
+	height: 100%;
+}
+
+.gridster .sliderContent {
+	width: 100%;
+	height: 100%;
+}
+
+.gridster .videoContent {
+	width:100%;
+	height:100%;
+	object-fit: fill;
+}
+
