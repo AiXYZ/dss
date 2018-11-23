@@ -50,17 +50,18 @@ $(document).ready(function () {
 	    	  var dataType = $(this).attr('data-type');
 	    	  var dataContent = $(this).attr('data-content');
 	    	  
-	    	  var dataWidget = '{"col":'+dataCol+', "row":'+dataRow+', "size_x":'+dataSizex+', "size_y":'+dataSizey+', "serial_n":'+i+', "type":'+dataType+', "content":'+dataContent+'}';
+	    	  var dataWidget = '{"col":'+dataCol+', "row":'+dataRow+', "size_x":'+dataSizex+', "size_y":'+dataSizey+', "serial_n":'+i+', "type":"'+dataType+'", "content":"'+dataContent+'"}';
 	    	  dataScreen.push(dataWidget);
 		});
 		
 		var dataScreenString = dataScreen.toString();
+		var dataScreenJsonString = '['+dataScreenString+']';
 		$.ajax({
 			url: "assets/ajax/controller/insert_screen.php",
 			type: "POST",
 			dataType:'json',
 			data:{
-				screen: dataScreenString,
+				screen: dataScreenJsonString,
 			}
 		}).done(function(data){
 			console.log(data);
