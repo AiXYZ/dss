@@ -2,7 +2,7 @@ $(document).ready(function () {
 	//Grid
 	var gridster = null;
     gridster = $(".gridster ul").gridster({
-        widget_base_dimensions: ['auto', 50],
+        widget_base_dimensions: ['auto', 72],
         autogenerate_stylesheet: true,
         min_cols: 1,
         max_cols: 128,
@@ -34,7 +34,7 @@ $(document).ready(function () {
 	    		
 	    		var imageTag = '';
 	    	    $.each(sliderImageArray, function (sliderI, sliderC){
-	    	    	imageTag += '<img class="sliderContent sliderAnimate" src="assets/upload/image/'+sliderC+'">';
+	    	    	imageTag += '<img class="sliderContent" src="assets/upload/image/'+sliderC+'">';
 	    	    });
 	    	    
 	    		var htmlContent = '<li class="screenContent sliderContentLi">'+imageTag+'</li>';
@@ -72,7 +72,7 @@ $(document).ready(function () {
 	        	sliderIndex = 1
 	        }    
 	        sliderContentX[sliderIndex-1].style.display = "block";  
-	        setTimeout(sliderCarousel, 9000);
+	        setTimeout(sliderCarousel, 2000);
 	    }
 	    
 	});

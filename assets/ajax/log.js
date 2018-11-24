@@ -2,7 +2,7 @@ $(document).ready(function () {
 	//Grid
 	var gridster = null;
     gridster = $(".gridster ul").gridster({
-        widget_base_dimensions: ['auto', 50],
+        widget_base_dimensions: ['auto', 72],
         autogenerate_stylesheet: true,
         min_cols: 1,
         max_cols: 128,
@@ -33,11 +33,14 @@ $(document).ready(function () {
     }).data('gridster');
     
     //Screen height
-    var screenWidth = $(".gridster").width();
-    screenWidth *= 1;
-    var screenHeight = Math.round((screenWidth/16)*9);
-    $('.gridster  ul').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
-    $('.gridster').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
+    var screenWidth = $(".cardScreen").width();
+    var widthDifference = 1920 - screenWidth;
+    var widthDecreased = (widthDifference/1920)*100;
+    var widthZoom = 100 - widthDecreased;
+    
+    $('.gridster  ul').css({'padding': '0', 'height': '1080px', 'max-height': '1080px', 'min-height': '1080px', 'width': '1920px', 'max-width': '1920px', 'min-width': '1920px'});
+    $('.gridster').css({'padding': '0', 'height': '1080px', 'max-height': '1080px', 'min-height': '1080px', 'width': '1920px', 'max-width': '1920px', 'min-width': '1920px'});
+    $('.cardScreen').css({'zoom': widthZoom+'%'});
     
     //Screen data
 	$('#getScreenData').on('click', function(){
