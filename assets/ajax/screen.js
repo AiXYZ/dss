@@ -7,7 +7,7 @@ $(document).ready(function () {
         min_cols: 1,
         max_cols: 128,
         avoid_overlapped_widgets: false,
-        widget_margins: [0, 0],  
+        widget_margins: [0, 0]
     }).data('gridster');
     
 	$.ajax({
@@ -50,6 +50,13 @@ $(document).ready(function () {
 	    	gridster.add_widget(htmlContent, this.size_x, this.size_y, this.col, this.row);
 	    });
 	    
+	    //Screen height
+	    var screenWidth = $(".gridster").width();
+	    screenWidth *= 1;
+	    var screenHeight = Math.round((screenWidth/16)*9);
+	    $('.gridster  ul').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
+	    $('.gridster').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});	    
+	    
 	    //Slider
 	    var sliderIndex = 0;
 	    sliderCarousel();
@@ -68,13 +75,6 @@ $(document).ready(function () {
 	        setTimeout(sliderCarousel, 9000);
 	    }
 	    
-	});    
-    
-    //Screen height
-    var screenWidth = $(".gridster").width();
-    screenWidth *= 1;
-    var screenHeight = Math.round((screenWidth/16)*9);
-    $('.gridster  ul').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
-    $('.gridster').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
-
+	});
+	
 });
