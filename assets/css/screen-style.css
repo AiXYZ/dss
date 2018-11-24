@@ -43,6 +43,20 @@
 	display: none;
 }
 
+.sliderAnimate{
+    animation:fading 10s infinite
+}@keyframes fading{
+    0%{
+        opacity:0
+    }
+    50%{
+        opacity:1
+    }
+    100%{
+        opacity:0
+    }
+}
+
 .gridster .videoContent {
 	width:100%;
 	height:100%;

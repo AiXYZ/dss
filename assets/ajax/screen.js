@@ -34,7 +34,7 @@ $(document).ready(function () {
 	    		
 	    		var imageTag = '';
 	    	    $.each(sliderImageArray, function (sliderI, sliderC){
-	    	    	imageTag += '<img class="sliderContent" src="assets/upload/image/'+sliderC+'">';
+	    	    	imageTag += '<img class="sliderContent sliderAnimate" src="assets/upload/image/'+sliderC+'">';
 	    	    });
 	    	    
 	    		var htmlContent = '<li class="screenContent sliderContentLi">'+imageTag+'</li>';
@@ -65,7 +65,7 @@ $(document).ready(function () {
 	        	sliderIndex = 1
 	        }    
 	        sliderContentX[sliderIndex-1].style.display = "block";  
-	        setTimeout(sliderCarousel, 2000);
+	        setTimeout(sliderCarousel, 9000);
 	    }
 	    
 	});    
