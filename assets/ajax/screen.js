@@ -21,7 +21,7 @@ $(document).ready(function () {
 		var screen = JSON.parse(data.content);
 		
 	    gridster.remove_all_widgets();
-	    $.each(screen, function () {
+	    $.each(screen, function (){
 	    	if(this.type == 'text'){
 	    		var htmlContent = '<li class="screenContent textContent">'+this.content+'</li>';
 	    	}
@@ -31,8 +31,13 @@ $(document).ready(function () {
 	    	if(this.type == 'slider'){
 	    		var sliderImage = this.content;
 	    		var sliderImageArray = sliderImage.split(',');
-	    		var sliderFristImage = sliderImageArray.shift();
-	    		var htmlContent = '<li class="screenContent"><img class="sliderContent" data-slider="'+this.content+'" src="assets/upload/image/'+sliderFristImage+'"></li>';
+	    		
+	    		var imageTag = '';
+	    	    $.each(sliderImageArray, function (sliderI, sliderC){
+	    	    	imageTag += '<img class="sliderContent" src="assets/upload/image/'+sliderC+'">';
+	    	    });
+	    	    
+	    		var htmlContent = '<li class="screenContent sliderContentLi">'+imageTag+'</li>';
 	    	}	    	
 	    	if(this.type == 'video'){
 	    		var htmlContent = '<li class="screenContent">'+
@@ -44,6 +49,25 @@ $(document).ready(function () {
 	    	
 	    	gridster.add_widget(htmlContent, this.size_x, this.size_y, this.col, this.row);
 	    });
+	    
+	    //Slider
+	    var sliderIndex = 0;
+	    sliderCarousel();
+
+	    function sliderCarousel() {
+	        var sliderCountI;
+	        var sliderContentX = document.getElementsByClassName("sliderContent");
+	        for (sliderCountI = 0; sliderCountI < sliderContentX.length; sliderCountI++) {
+	           sliderContentX[sliderCountI].style.display = "none";  
+	        }
+	        sliderIndex++;
+	        if(sliderIndex > sliderContentX.length){
+	        	sliderIndex = 1
+	        }    
+	        sliderContentX[sliderIndex-1].style.display = "block";  
+	        setTimeout(sliderCarousel, 2000);
+	    }
+	    
 	});    
     
     //Screen height
@@ -52,22 +76,5 @@ $(document).ready(function () {
     var screenHeight = Math.round((screenWidth/16)*9);
     $('.gridster  ul').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
     $('.gridster').css({'padding': '0', 'height': screenHeight+'px', 'max-height': screenHeight+'px', 'min-height': screenHeight+'px'});
-    
-    //Slider
-//    $(".sliderContent").ready(function() {
-//    	var dataSlider = $('.sliderContent').attr('data-slider');
-//    	console.log(dataSlider);
-//	});    
-  
-    //$(this).data("id")
-	//var dataSliderArray = dataSlider.split(',');
-	
-	
-    /*
-	var image = new Array(); 
-    for(int i=0;i<20;i++){ 
-    image[i] = new Image(); 
-    image[i].src = "images/names" + i + ".jpg"; // file path 
-    }
-    */
+
 });

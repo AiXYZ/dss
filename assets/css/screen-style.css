@@ -39,6 +39,10 @@
 	height: 100%;
 }
 
+.gridster .sliderContentLi {
+	display: none;
+}
+
 .gridster .videoContent {
 	width:100%;
 	height:100%;
